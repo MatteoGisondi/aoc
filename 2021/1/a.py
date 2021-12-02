@@ -7,9 +7,9 @@ f_in = f'{path.parent}/{path.stem}.in'
 with open(f_in, 'r') as f:
     lines = list(map(int, f.readlines()))
 
-answer = 0
+n_greater = 0
+for i in range(1, len(lines)):
+    if lines[i] > lines[i - 1]:
+        n_greater += 1
 
-for line in lines:
-    pass
-
-print(answer)
+print(n_greater)
