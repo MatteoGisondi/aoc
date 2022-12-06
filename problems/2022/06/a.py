@@ -1,15 +1,22 @@
 from pathlib import Path
+from collections import Counter
 
 path = Path(__file__)
 
 f_in = f'{path.parent}/.in'
 
 with open(f_in, 'r') as f:
-    lines = list(map(int, f.readlines()))
+    chars = f.read()
 
-answer = 0
+print(chars[:])
 
-for line in lines:
-    pass
+def check(chars):
+    for i, c in enumerate(chars):
+        print(c)
+        stream = Counter(chars[i:i+4])
+        print(stream)
+        if all(map(lambda x: x == 1, stream.values())):
+            return i + 4
 
+answer = check(chars)
 print(answer)
